@@ -7,6 +7,8 @@ from telegram import Bot
 from github import Github
 from github import Auth
 
+# af10450 b1029b6
+
 
 # 发送压缩文件到Telegram
 async def send_file_to_telegram():
@@ -52,7 +54,7 @@ def dec_to_hex(decimal_value):
     """
     try:
         decimal_value = int(decimal_value)  # Ensure input is an integer
-        hex_value = hex(decimal_value).replace("0x", "").upper()
+        hex_value = hex(decimal_value).replace("0x", "").lower()
         return hex_value
     except ValueError:
         return "Invalid decimal value!"
@@ -90,7 +92,7 @@ async def main():
     for code in range(start, start + 5005, 1):
         # Define the URL of the image
         hex_value = dec_to_hex(code)
-        url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_w1.jpg"
+        url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_h1.jpg"
         # https://i.kfs.io/artist/global/407071,0v36/fit/500x500.jpg
         print(code, url)
         # Send a GET request to the URL
