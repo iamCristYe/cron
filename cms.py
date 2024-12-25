@@ -121,10 +121,12 @@ async def main():
                         print("Image saved successfully.")
                     else:
                         with open(f"cms-{start}.txt", "a") as f:
-                            f.write(url + "\n")
+                            f.write(url + " File < 6KB\n")
                         print("File < 6KB")
                     break
                 else:
+                    with open(f"cms-{start}.txt", "a") as f:
+                        f.write(url + " 404\n")
                     print(
                         "Failed to retrieve the image. Status code:",
                         response.status_code,
