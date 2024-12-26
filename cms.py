@@ -100,7 +100,7 @@ async def main():
             "https://lemino.docomo.ne.jp/contents/"
             + base64.b64encode(crid.encode()).decode()
         )
-        res_str = url + "\n" + json_url + "\n" + lemino_url + "\n" + code + "\n"
+        res_str = url + "\n" + json_url + "\n" + lemino_url + "\n" + str(code) + "\n"
         print(res_str)
         # Send a GET request to the URL
 
