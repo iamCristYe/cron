@@ -6,6 +6,7 @@ import os
 from telegram import Bot
 from github import Github
 from github import Auth
+import base64
 
 # af10450 b1029b6
 
@@ -93,8 +94,14 @@ async def main():
         # Define the URL of the image
         hex_value = dec_to_hex(code)
         url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_h1.jpg"
-        # https://i.kfs.io/artist/global/407071,0v36/fit/500x500.jpg
-        print(code, url)
+        crid = "crid://plala.iptvf.jp/group/" + hex_value
+        json_url = "https://if.lemino.docomo.ne.jp/v1/meta/contents?crid" + crid
+        lemino_url = (
+            "https://lemino.docomo.ne.jp/contents/"
+            + base64.b64encode(crid.encode()).decode()
+        )
+        res_str = url + "\n" + json_url + "\n" + lemino_url + "\n" + code + "\n"
+        print(res_str)
         # Send a GET request to the URL
 
         # Retry mechanism in case of connection issues
@@ -112,23 +119,20 @@ async def main():
                         # with open(f"img/{code}.jpg", "wb") as file:
                         #     file.write(response.content)
                         with open(f"cms-{start}.txt", "a") as f:
-                            f.write(url + "\t" + "\n")
+                            f.write(res_str)
                         send_telegram_image(
-                            os.environ["bot_token"],
-                            os.environ["chat_id"],
-                            url,
-                            url,
+                            os.environ["bot_token"], os.environ["chat_id"], url, res_str
                         )
                         need_update = True
                         print("Image saved successfully.")
                     else:
                         with open(f"cms-{start}.txt", "a") as f:
-                            f.write(url + " File < 6KB\n")
+                            f.write(res_str + "\n" + " File < 6KB\n")
                         print("File < 6KB")
                     break
                 else:
                     with open(f"cms-{start}.txt", "a") as f:
-                        f.write(url + " 404\n")
+                        f.write(res_str + "\n" + " 404\n")
                     print(
                         "Failed to retrieve the image. Status code:",
                         response.status_code,
