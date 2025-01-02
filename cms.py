@@ -91,6 +91,7 @@ async def main():
         g.close()
 
     for code in range(start, start + 5005, 1):
+        print(code)
         # Define the URL of the image
         hex_value = dec_to_hex(code)
         url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_w1.jpg"
