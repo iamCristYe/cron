@@ -93,14 +93,14 @@ async def main():
     for code in range(start, start + 5005, 1):
         # Define the URL of the image
         hex_value = dec_to_hex(code)
-        url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_h1.jpg"
+        url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_w1.jpg"
         crid = "crid://plala.iptvf.jp/group/" + hex_value
         json_url = "https://if.lemino.docomo.ne.jp/v1/meta/contents?crid" + crid
         lemino_url = (
             "https://lemino.docomo.ne.jp/contents/"
             + base64.b64encode(crid.encode()).decode()
         )
-        res_str = url + "\n" + json_url + "\n" + lemino_url + "\n" + str(code) + "\n"
+        res_str = url  # + "\n" + json_url + "\n" + lemino_url + "\n" + str(code) + "\n"
         print(res_str)
         # Send a GET request to the URL
 
