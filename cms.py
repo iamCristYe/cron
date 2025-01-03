@@ -122,7 +122,10 @@ async def main():
                         with open(f"cms-{start}.txt", "a") as f:
                             f.write(res_str)
                         send_telegram_image(
-                            os.environ["bot_token"], os.environ["chat_id"], url, res_str
+                            os.environ["bot_token"],
+                            os.environ["chat_id"],
+                            url,
+                            str(code) + "\n" + res_str,
                         )
                         need_update = True
                         print("Image saved successfully.")
