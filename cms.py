@@ -103,7 +103,7 @@ async def main():
         # )
         # res_str = url  # + "\n" + json_url + "\n" + lemino_url + "\n" + str(code) + "\n"
         # url = f"https://img.lemino.docomo.ne.jp/livecms/{hex_value}/thumbnail/w_0.png?width=128&auto=webp&quality=75"
-        url = f"https://img.lemino.docomo.ne.jp/livecms/live_s_000{code:%5d}/thumbnail/thumbnail.png"
+        url = f"https://img.lemino.docomo.ne.jp/livecms/live_s_000{code:%5d}/thumbnail/thumbnail.png?width=256&auto=webp&quality=75"
         res_str = url
         print(res_str)
         # Send a GET request to the URL
