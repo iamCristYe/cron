@@ -46,3 +46,19 @@ jobs:
         run: date && bash -c "$CMD_9" && echo && date
         env:
           CMD_9: ${{ secrets.CMD_9 }}
+      - name: Run Command 10
+        run: date && bash -c "$CMD_10" && echo && date
+        env:
+          CMD_10: ${{ secrets.CMD_10 }}
+      - name: Run Command 11
+        run: date && bash -c "$CMD_11" && echo && date
+        env:
+          CMD_11: ${{ secrets.CMD_11 }}
+      - name: Run Command 12
+        run: date && bash -c "$CMD_12" && echo && date
+        env:
+          CMD_12: ${{ secrets.CMD_12 }}
+      - name: Run Command 13
+        run: date && bash -c "$CMD_13" && echo && date
+        env:
+          CMD_13: ${{ secrets.CMD_13 }}
