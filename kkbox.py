@@ -66,7 +66,7 @@ async def main():
 
     for code in range(start, start + 5005, 1):
         # Define the URL of the image
-        url = f"https://i.kfs.io/album/global/{code},1v1/fit/500x500.jpg"
+        url = f"https://i.kfs.io/album/global/{code},0v1/fit/500x500.jpg"
         # https://i.kfs.io/artist/global/407071,0v36/fit/500x500.jpg
         print(code, url)
         # Send a GET request to the URL
