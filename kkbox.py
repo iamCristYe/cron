@@ -64,7 +64,7 @@ async def main():
         # To close connections after use
         g.close()
 
-    for code in range(start, start + 5005, 1):
+    for code in range(start, start + 2002, 1):
         # Define the URL of the image
         url = f"https://i.kfs.io/album/global/{code},0v1/fit/500x500.jpg"
         # https://i.kfs.io/artist/global/407071,0v36/fit/500x500.jpg
@@ -133,7 +133,7 @@ async def main():
         repo = g.get_user().get_repo("cron")
         contents = repo.get_contents("kkbox.json")
 
-        data["last"] = start + 5005
+        data["last"] = start + 2002
         data["running"] = False
         with open("kkbox.json", "w") as f:
             json.dump(data, f)
