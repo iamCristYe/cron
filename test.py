@@ -1,17 +1,20 @@
 import requests
 from datetime import datetime, timedelta
 
-# 日期范围
+# 日期范围 + 发售日（5月21日）
 start_date = datetime(2025, 3, 30)
 end_date = datetime(2025, 4, 12)
+release_date = datetime(2025, 5, 21)
+
 dates = [
     (start_date + timedelta(days=i)).strftime("%m%d")
     for i in range((end_date - start_date).days + 1)
 ]
+dates.append(release_date.strftime("%m%d"))  # 添加发售日
 
 base_url = "https://cdn.hinatazaka46.com/files/14/H46%20NEWS/"
 
-# 无日期模板（已加入更多可能组合）
+# 无日期模板（加入更多命名风格）
 templates_without_date = [
     "hnt46_14th_asya_FIX_s.jpg",
     "hnt46_14th_asya_FIX.jpg",
@@ -49,9 +52,19 @@ templates_without_date = [
     "ア写.jpg",
     "hnt46_ア写.jpg",
     "hnt46_ア写_FIX.jpg",
+    # 新增尝试
+    "hnt46_14th_A.jpg",
+    "hnt46_14th_visual.jpg",
+    "14th_visual.jpg",
+    "14th_FIX.jpg",
+    "hnt46_visual.jpg",
+    "hnt46_14th_VISUAL.jpg",
+    "14th_VISUAL.jpg",
+    "14th_A写.jpg",
+    "hnt46_ア写_ビジュアル.jpg",
 ]
 
-# 有日期模板（加入更多变体）
+# 有日期模板（更多命名可能）
 templates_with_date = [
     "_アー写_{date}.jpg",
     "アー写_14th_{date}.jpg",
@@ -85,9 +98,19 @@ templates_with_date = [
     "14th_asya_s_{date}.jpg",
     "hnt46_ア写_{date}.jpg",
     "hnt46_ア写_FIX_{date}.jpg",
+    # 新增变体
+    "HNT_14th_FIX_{date}.jpg",
+    "hnt46_14_FIX_{date}.jpg",
+    "hnt46_14th_VISUAL_{date}.jpg",
+    "14th_VISUAL_{date}.jpg",
+    "hnt46_visual_{date}.jpg",
+    "visual_14th_{date}.jpg",
+    "ア写14_{date}.jpg",
+    "14th_A写_{date}.jpg",
+    "14th_image_{date}.jpg",
 ]
 
-# 请求检测
+# 请求检测函数
 def check_url(url):
     try:
         response = requests.head(url, timeout=15)
