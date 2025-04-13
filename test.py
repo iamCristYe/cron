@@ -1,20 +1,19 @@
 import requests
 from datetime import datetime, timedelta
 
-# 日期范围 + 发售日（5月21日）
+# 日期范围
 start_date = datetime(2025, 3, 30)
-end_date = datetime(2025, 4, 12)
+end_date = datetime(2025, 4, 14)
 release_date = datetime(2025, 5, 21)
 
 dates = [
-    (start_date + timedelta(days=i)).strftime("%m%d")
-    for i in range((end_date - start_date).days + 1)
+    start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)
 ]
-dates.append(release_date.strftime("%m%d"))  # 添加发售日
+dates.append(release_date)  # 添加发售日
+
 
 base_url = "https://cdn.hinatazaka46.com/files/14/H46%20NEWS/"
 
-# 无日期模板（加入更多命名风格）
 templates_without_date = [
     "hnt46_14th_asya_FIX_s.jpg",
     "hnt46_14th_asya_FIX.jpg",
@@ -52,65 +51,47 @@ templates_without_date = [
     "ア写.jpg",
     "hnt46_ア写.jpg",
     "hnt46_ア写_FIX.jpg",
-    # 新增尝试
-    "hnt46_14th_A.jpg",
-    "hnt46_14th_visual.jpg",
-    "14th_visual.jpg",
-    "14th_FIX.jpg",
-    "hnt46_visual.jpg",
-    "hnt46_14th_VISUAL.jpg",
-    "14th_VISUAL.jpg",
-    "14th_A写.jpg",
-    "hnt46_ア写_ビジュアル.jpg",
 ]
 
-# 有日期模板（更多命名可能）
 templates_with_date = [
-    "_アー写_{date}.jpg",
-    "アー写_14th_{date}.jpg",
-    "14th_asya_{date}.jpg",
-    "14th_Asya_FIX_{date}.jpg",
-    "14th_Acmyk_{date}.jpg",
-    "14th_{date}.jpg",
-    "_14th_{date}.jpg",
-    "hnt46_14th_{date}.jpg",
-    "hnt46_14th_main_{date}.jpg",
-    "{date}_14th_asya.jpg",
-    "{date}_14th_main.jpg",
-    "hnt46_アー写_14th_{date}.jpg",
-    "hnt46_アー写_FIX_{date}.jpg",
-    "HNT_14th_{date}.jpg",
+    "{date_yymmdd}_hnt46_14th_asya_FIX.jpg",
+    "{date_yymmdd}_hnt46_asya_FIX.jpg",
+    "{date_yymmdd}_asya.jpg",
+    "{date_yymmdd}_14th_asya.jpg",
+    "{date_yymmdd}_アー写.jpg",
+    "{date_yymmdd}_14th.jpg",
+    "{date_yymmdd}_FIX.jpg",
+    "{date_yymmdd}_hnt46_FIX.jpg",
     "asya_FIX_{date}.jpg",
     "asya_{date}.jpg",
     "_asya_{date}.jpg",
     "_asya_FIX_{date}.jpg",
     "アー写_{date}.jpg",
     "アー写_FIX_{date}.jpg",
+    "_アー写_{date}.jpg",
     "_アー写14th_{date}.jpg",
     "hnt46_asya_{date}.jpg",
     "hnt46_asya_FIX_{date}.jpg",
     "hnt46_FIX_{date}.jpg",
     "_FIX_{date}.jpg",
-    "14th_アー写_{date}.jpg",
+    "14th_asya_{date}.jpg",
+    "14th_Asya_FIX_{date}.jpg",
+    "14th_{date}.jpg",
+    "hnt46_14th_main_{date}.jpg",
     "14th_asya_FIX_s_{date}.jpg",
     "hnt46_asya_FIX_s_{date}.jpg",
     "asya_FIX_s_{date}.jpg",
     "14th_asya_s_{date}.jpg",
     "hnt46_ア写_{date}.jpg",
     "hnt46_ア写_FIX_{date}.jpg",
-    # 新增变体
-    "HNT_14th_FIX_{date}.jpg",
-    "hnt46_14_FIX_{date}.jpg",
-    "hnt46_14th_VISUAL_{date}.jpg",
-    "14th_VISUAL_{date}.jpg",
-    "hnt46_visual_{date}.jpg",
-    "visual_14th_{date}.jpg",
-    "ア写14_{date}.jpg",
-    "14th_A写_{date}.jpg",
-    "14th_image_{date}.jpg",
+    "14th_アー写_{date}.jpg",
+    "HNT_14th_{date}.jpg",
+    "hnt46_アー写_14th_{date}.jpg",
+    "hnt46_アー写_FIX_{date}.jpg",
+    "ア写_{date}.jpg",
 ]
 
-# 请求检测函数
+
 def check_url(url):
     try:
         response = requests.head(url, timeout=15)
@@ -119,7 +100,8 @@ def check_url(url):
         print(f"⚠️ 请求失败: {url} -> {e}")
         return False
 
-# 测试无日期模板
+
+# Step 1: 不含日期
 print("🔍 [Step 1] 尝试不含日期的文件名...")
 for filename in templates_without_date:
     full_url = base_url + filename
@@ -128,11 +110,13 @@ for filename in templates_without_date:
         print(f"\n✅ 找到有效链接: {full_url}")
         exit(0)
 
-# 测试有日期模板
-print("🔍 [Step 2] 尝试含日期的文件名...")
-for date in dates:
+# Step 2: 含日期
+print("🔍 [Step 2] 尝试含日期的文件名（任意位置）...")
+for date_obj in dates:
+    date = date_obj.strftime("%m%d")
+    date_yymmdd = date_obj.strftime("%y%m%d")
     for tpl in templates_with_date:
-        filename = tpl.format(date=date)
+        filename = tpl.format(date=date, date_yymmdd=date_yymmdd)
         full_url = base_url + filename
         print(f"尝试中: {full_url}")
         if check_url(full_url):
