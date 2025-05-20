@@ -31,7 +31,7 @@ while True:
         print("Condition met! Doing something...")
         count += 1
         subprocess.run(data["CMD_5"], shell=True)
-        subprocess.run(data["CMD_8"], shell=True)
+        subprocess.run(data["CMD_7"], shell=True)
         subprocess.run(data["CMD_9"], shell=True)
         subprocess.run(data["CMD_10"], shell=True)
     else:
@@ -39,6 +39,6 @@ while True:
 
     if count >= 16:
         subprocess.run(data["CMD_6"], shell=True)
-        subprocess.run(data["CMD_7"], shell=True)
+        subprocess.run(data["CMD_8"], shell=True)
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         break
