@@ -52,7 +52,8 @@ templates_without_date = [
     "hnt46_ア写.jpg",
     "hnt46_ア写_FIX.jpg",
 ]
-
+# https://cdn.hinatazaka46.com/files/14/H46%20Release/14th%20Love%20yourself%21/Hinatazaka46_14thSG%20Love%20yourself%21_AP_RGB.jpg
+# https://sakurazaka46.com/files/14/S46%20Release/11th%20UDAGAWA%20GENERATION/Sakurazaka46_11th%20Single_UDAGAWA%20GENERATION_AP_s.jpg
 templates_with_date = [
     "{date_yymmdd}_hnt46_14th_asya_FIX.jpg",
     "{date_yymmdd}_hnt46_asya_FIX.jpg",

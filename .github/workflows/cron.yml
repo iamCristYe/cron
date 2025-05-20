@@ -2,7 +2,7 @@ name: cron
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Every 15 minutes
+    - cron: '30 2-22/4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -10,55 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run Command 1
-        run: date && bash -c "$CMD_1" && echo && date
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' # Specify the Python version you need
+    
+      - name: Run apt and pip
+        run: |
+          pip install requests
+
+      - name: Run cron job
+        run: python cron.py
         env:
           CMD_1: ${{ secrets.CMD_1 }}
-      - name: Run Command 2
-        run: date && bash -c "$CMD_2" && echo && date
-        env:
           CMD_2: ${{ secrets.CMD_2 }}
-      - name: Run Command 3
-        run: date && bash -c "$CMD_3" && echo && date
-        env:
           CMD_3: ${{ secrets.CMD_3 }}
-      - name: Run Command 4
-        run: date && bash -c "$CMD_4" && echo && date
-        env:
           CMD_4: ${{ secrets.CMD_4 }}
-      - name: Run Command 5
-        run: date && bash -c "$CMD_5" && echo && date
-        env:
           CMD_5: ${{ secrets.CMD_5 }}
-      - name: Run Command 6
-        run: date && bash -c "$CMD_6" && echo && date
-        env:
           CMD_6: ${{ secrets.CMD_6 }}
-      - name: Run Command 7
-        run: date && bash -c "$CMD_7" && echo && date
-        env:
           CMD_7: ${{ secrets.CMD_7 }}
-      - name: Run Command 8
-        run: date && bash -c "$CMD_8" && echo && date
-        env:
           CMD_8: ${{ secrets.CMD_8 }}
-      - name: Run Command 9
-        run: date && bash -c "$CMD_9" && echo && date
-        env:
           CMD_9: ${{ secrets.CMD_9 }}
-      - name: Run Command 10
-        run: date && bash -c "$CMD_10" && echo && date
-        env:
           CMD_10: ${{ secrets.CMD_10 }}
-      - name: Run Command 11
-        run: date && bash -c "$CMD_11" && echo && date
-        env:
-          CMD_11: ${{ secrets.CMD_11 }}
-      - name: Run Command 12
-        run: date && bash -c "$CMD_12" && echo && date
-        env:
-          CMD_12: ${{ secrets.CMD_12 }}
-      - name: Run Command 13
-        run: date && bash -c "$CMD_13" && echo && date
-        env:
-          CMD_13: ${{ secrets.CMD_13 }}
