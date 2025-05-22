@@ -28,6 +28,7 @@ while True:
         subprocess.run(data["CMD_7"], shell=True)
         subprocess.run(data["CMD_9"], shell=True)
         subprocess.run(data["CMD_10"], shell=True)
+        time.sleep(60)
     else:
         time.sleep(40)
 
