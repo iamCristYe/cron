@@ -161,6 +161,6 @@ def get_send(id, start):
             break
 
 
-get_send("0000013", 1)#41)
-get_send("0000045", 1)#31)
-get_send("0000046", 1)#24)
+get_send("0000013", 41)
+get_send("0000045", 31)
+get_send("0000046", 24)
