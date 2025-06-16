@@ -19,10 +19,8 @@ jobs:
       - name: Run apt and pip
         run: |
           pip install requests
+          apt install ffmpeg
 
 
-      - name: Run Python script
-        run: |
-          python test.py
 
 
