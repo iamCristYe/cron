@@ -90,11 +90,11 @@ async def main():
         # To close connections after use
         g.close()
 
-    for code in range(700, 1200):  # (start, start + 500, 1):
+    for code in range(0, 1200):  # (start, start + 500, 1):
         print(code)
         # Define the URL of the image
         hex_value = dec_to_hex(code)
-        # url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_w1.jpg"
+        url = f"https://img.lemino.docomo.ne.jp/cms/{hex_value}/{hex_value}_w1.jpg"
         # crid = "crid://plala.iptvf.jp/group/" + hex_value
         # json_url = "https://if.lemino.docomo.ne.jp/v1/meta/contents?crid" + crid
         # lemino_url = (
@@ -103,7 +103,7 @@ async def main():
         # )
         # res_str = url  # + "\n" + json_url + "\n" + lemino_url + "\n" + str(code) + "\n"
         # url = f"https://img.lemino.docomo.ne.jp/livecms/{hex_value}/thumbnail/w_0.png?width=128&auto=webp&quality=75"
-        url = f"https://img.lemino.docomo.ne.jp/livecms/live_s_000{code:05d}/thumbnail/thumbnail.png?width=256&auto=webp&quality=75"
+        # url = f"https://img.lemino.docomo.ne.jp/livecms/live_s_000{code:05d}/thumbnail/thumbnail.png?width=256&auto=webp&quality=75"
         res_str = url
         print(res_str)
         # Send a GET request to the URL
@@ -172,7 +172,7 @@ async def main():
         repo = g.get_user().get_repo("cron")
         contents = repo.get_contents("cms.json")
 
-        data["last"] = start + 5005
+        data["last"] = start + 1000
         data["running"] = False
         with open("cms.json", "w") as f:
             json.dump(data, f)
