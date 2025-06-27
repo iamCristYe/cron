@@ -90,7 +90,7 @@ async def main():
         # To close connections after use
         g.close()
 
-    for code in range(start, start+1000):  # (start, start + 500, 1):
+    for code in range(start, start+5000):  # (start, start + 500, 1):
         print(code)
         # Define the URL of the image
         hex_value = dec_to_hex(code)
@@ -174,7 +174,7 @@ async def main():
         repo = g.get_user().get_repo("cron")
         contents = repo.get_contents("cms.json")
 
-        data["last"] = start + 1000
+        data["last"] = start + 5000
         data["running"] = False
         with open("cms.json", "w") as f:
             json.dump(data, f)
