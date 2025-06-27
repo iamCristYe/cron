@@ -153,7 +153,9 @@ async def main():
 
         if code % 1000 == 0:
             while True:
+                
                 try:
+                    break
                     await send_file_to_telegram()
                     break
                 except:
