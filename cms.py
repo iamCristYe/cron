@@ -90,7 +90,7 @@ async def main():
         # To close connections after use
         g.close()
 
-    for code in range(0, 1200):  # (start, start + 500, 1):
+    for code in range(start, start+1000):  # (start, start + 500, 1):
         print(code)
         # Define the URL of the image
         hex_value = dec_to_hex(code)
