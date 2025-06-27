@@ -68,7 +68,7 @@ async def main():
         data = json.load(f)
         if data["running"]:
             return
-        start = int(data["last"] / 1000) * 1000 - 1
+        start = int(data["last"])-10
         data["running"] = True
         with open("cms.json", "w") as f:
             json.dump(data, f)
