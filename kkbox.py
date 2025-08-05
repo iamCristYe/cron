@@ -74,7 +74,7 @@ async def main():
         # Retry mechanism in case of connection issues
         while True:
             try:
-                response = requests.get(url)
+                response = requests.get(url, allow_redirects=False)
                 last_modified = response.headers.get("last-modified")
 
                 # time.sleep(1)
