@@ -66,7 +66,7 @@ async def main():
 
     for code in range(start, start + 2002, 1):
         # Define the URL of the image
-        url = f"https://i.kfs.io/album/global/{code},0v1/fit/500x500.jpg"
+        url = f"https://i.kfs.io/album/global/{code},0v1/fit/160x160.jpg"
         # https://i.kfs.io/artist/global/407071,0v36/fit/500x500.jpg
         print(code, url)
         # Send a GET request to the URL
@@ -80,7 +80,7 @@ async def main():
                 # time.sleep(1)
                 # Check if the request was successful (status code 200)
                 if response.status_code == 200:
-                    if len(response.content) > 6 * 1024:
+                    if len(response.content) > 1 * 1024:
                         print(last_modified)
                         # Save the content to a file
                         # with open(f"img/{code}.jpg", "wb") as file:
