@@ -76,6 +76,8 @@ async def main():
             try:
                 response = requests.get(url, allow_redirects=False)
                 last_modified = response.headers.get("last-modified")
+                with open(f"kkbox-{start}.txt", "a") as f:
+                    f.write(url + "\n")
 
                 # time.sleep(1)
                 # Check if the request was successful (status code 200)
