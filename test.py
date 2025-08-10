@@ -99,7 +99,7 @@ def generate_templates(group, nth, title, shortcode):
 
 
 # ==== 使用示例 ====
-group = "Hinatazaka46"
+group = ""#"Hinatazaka46"
 nth = "15th"
 title = "お願いバッハ！"
 shortcode = "hnt46"  # 缩写
