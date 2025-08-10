@@ -11,7 +11,7 @@ dates = [
 ]
 dates.append(release_date)  # 添加发售日
 
-
+# https://sakurazaka46.com/files/14/S46%20Release/12th%20Make%20or%20Break/Sakurazaka46_12th%20Single_Make%20or%20Break_AP_yori.jpg
 # https://sakurazaka46.com/files/14/S46%20Release/11th%20UDAGAWA%20GENERATION/Sakurazaka46_11th%20Single_UDAGAWA%20GENERATION_AP_s.jpg
 # https://sakurazaka46.com/files/14/S46%20Release/10th%20I%20want%20tomorrow%20to%20come/Sakurazaka46_10th%20Single_I%20want%20tomorrow%20to%20come_AP_s.jpg
 # sakurazaka46.com/files/14/S46%20Release/9th%20自業自得/_Sakurazaka46_9th%20Single_自業自得_AP_s.jpg
@@ -24,295 +24,91 @@ dates.append(release_date)  # 添加发售日
 # sakurazaka46.com/files/14/sakurazaka46_BAN_KV.jpg
 # sakurazaka46.com/files/14/sakurazaka_Nobody%27s%20fault_KV_s.jpg
 
-
-base_url = "https://sakurazaka46.com/files/14/S46%20Release/12th%20Make%20or%20Break/"
-
-templates_without_date = [
-  "_AP_s.jpg",
-    "_AP_S.jpg",
-    "_AP_RGB.jpg",
-    "_AP_s_RGB.jpg",
-    "_AP_S_RGB.jpg",
-    "AP_s.jpg",
-    "AP_S.jpg",
-    "AP_RGB.jpg",
-    "AP_s_RGB.jpg",
-    "AP_S_RGB.jpg",
-    "s.jpg",
-    "S.jpg",
-    "RGB.jpg",
-    "s_RGB.jpg",
-    "S_RGB.jpg",
-    "12th%20Single_AP_s.jpg",
-    "12th%20Single_AP_S.jpg",
-    "12th%20Single_AP_RGB.jpg",
-    "12th%20Single_AP_s_RGB.jpg",
-    "12th%20Single_AP_S_RGB.jpg",
-    "12th%20Single_AP_s.jpg",
-    "12th%20Single_AP_S.jpg",
-    "12th%20Single_AP_RGB.jpg",
-    "12th%20Single_AP_s_RGB.jpg",
-    "12th%20Single_AP_S_RGB.jpg",
-    "12th%20Single_s.jpg",
-    "12th%20Single_S.jpg",
-    "12th%20Single_RGB.jpg",
-    "12th%20Single_s_RGB.jpg",
-    "12th%20Single_S_RGB.jpg",
-    "Make%20or%20Break_AP_s.jpg",
-    "Make%20or%20Break_AP_S.jpg",
-    "Make%20or%20Break_AP_RGB.jpg",
-    "Make%20or%20Break_AP_s_RGB.jpg",
-    "Make%20or%20Break_AP_S_RGB.jpg",
-    "Make%20or%20Break_AP_s.jpg",
-    "Make%20or%20Break_AP_S.jpg",
-    "Make%20or%20Break_AP_RGB.jpg",
-    "Make%20or%20Break_AP_s_RGB.jpg",
-    "Make%20or%20Break_AP_S_RGB.jpg",
-    "Make%20or%20Break_s.jpg",
-    "Make%20or%20Break_S.jpg",
-    "Make%20or%20Break_RGB.jpg",
-    "Make%20or%20Break_s_RGB.jpg",
-    "Make%20or%20Break_S_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_s.jpg",
-    "12th%20Single_Make%20or%20Break_S.jpg",
-    "12th%20Single_Make%20or%20Break_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_s_RGB.jpg",
-    "12th%20Single_Make%20or%20Break_S_RGB.jpg",
-    "__AP_s.jpg",
-    "__AP_S.jpg",
-    "__AP_RGB.jpg",
-    "__AP_s_RGB.jpg",
-    "__AP_S_RGB.jpg",
-    "_AP_s.jpg",
-    "_AP_S.jpg",
-    "_AP_RGB.jpg",
-    "_AP_s_RGB.jpg",
-    "_AP_S_RGB.jpg",
-    "_s.jpg",
-    "_S.jpg",
-    "_RGB.jpg",
-    "_s_RGB.jpg",
-    "_S_RGB.jpg",
-    "_12th%20Single_AP_s.jpg",
-    "_12th%20Single_AP_S.jpg",
-    "_12th%20Single_AP_RGB.jpg",
-    "_12th%20Single_AP_s_RGB.jpg",
-    "_12th%20Single_AP_S_RGB.jpg",
-    "_12th%20Single_AP_s.jpg",
-    "_12th%20Single_AP_S.jpg",
-    "_12th%20Single_AP_RGB.jpg",
-    "_12th%20Single_AP_s_RGB.jpg",
-    "_12th%20Single_AP_S_RGB.jpg",
-    "_12th%20Single_s.jpg",
-    "_12th%20Single_S.jpg",
-    "_12th%20Single_RGB.jpg",
-    "_12th%20Single_s_RGB.jpg",
-    "_12th%20Single_S_RGB.jpg",
-    "_Make%20or%20Break_AP_s.jpg",
-    "_Make%20or%20Break_AP_S.jpg",
-    "_Make%20or%20Break_AP_RGB.jpg",
-    "_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Make%20or%20Break_AP_s.jpg",
-    "_Make%20or%20Break_AP_S.jpg",
-    "_Make%20or%20Break_AP_RGB.jpg",
-    "_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Make%20or%20Break_s.jpg",
-    "_Make%20or%20Break_S.jpg",
-    "_Make%20or%20Break_RGB.jpg",
-    "_Make%20or%20Break_s_RGB.jpg",
-    "_Make%20or%20Break_S_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_s.jpg",
-    "_12th%20Single_Make%20or%20Break_S.jpg",
-    "_12th%20Single_Make%20or%20Break_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_s_RGB.jpg",
-    "_12th%20Single_Make%20or%20Break_S_RGB.jpg",
-    "Sakurazaka46_AP_s.jpg",
-    "Sakurazaka46_AP_S.jpg",
-    "Sakurazaka46_AP_RGB.jpg",
-    "Sakurazaka46_AP_s_RGB.jpg",
-    "Sakurazaka46_AP_S_RGB.jpg",
-    "Sakurazaka46_AP_s.jpg",
-    "Sakurazaka46_AP_S.jpg",
-    "Sakurazaka46_AP_RGB.jpg",
-    "Sakurazaka46_AP_s_RGB.jpg",
-    "Sakurazaka46_AP_S_RGB.jpg",
-    "Sakurazaka46_s.jpg",
-    "Sakurazaka46_S.jpg",
-    "Sakurazaka46_RGB.jpg",
-    "Sakurazaka46_s_RGB.jpg",
-    "Sakurazaka46_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_s.jpg",
-    "Sakurazaka46_12th%20Single_AP_S.jpg",
-    "Sakurazaka46_12th%20Single_AP_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_s.jpg",
-    "Sakurazaka46_12th%20Single_AP_S.jpg",
-    "Sakurazaka46_12th%20Single_AP_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_AP_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_s.jpg",
-    "Sakurazaka46_12th%20Single_S.jpg",
-    "Sakurazaka46_12th%20Single_RGB.jpg",
-    "Sakurazaka46_12th%20Single_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_S_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_s.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_S.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_s_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_S_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_s.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_S.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_s_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_AP_S_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_s.jpg",
-    "Sakurazaka46_Make%20or%20Break_S.jpg",
-    "Sakurazaka46_Make%20or%20Break_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_s_RGB.jpg",
-    "Sakurazaka46_Make%20or%20Break_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_s.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_S.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_s_RGB.jpg",
-    "Sakurazaka46_12th%20Single_Make%20or%20Break_S_RGB.jpg",
-    "_Sakurazaka46_AP_s.jpg",
-    "_Sakurazaka46_AP_S.jpg",
-    "_Sakurazaka46_AP_RGB.jpg",
-    "_Sakurazaka46_AP_s_RGB.jpg",
-    "_Sakurazaka46_AP_S_RGB.jpg",
-    "_Sakurazaka46_AP_s.jpg",
-    "_Sakurazaka46_AP_S.jpg",
-    "_Sakurazaka46_AP_RGB.jpg",
-    "_Sakurazaka46_AP_s_RGB.jpg",
-    "_Sakurazaka46_AP_S_RGB.jpg",
-    "_Sakurazaka46_s.jpg",
-    "_Sakurazaka46_S.jpg",
-    "_Sakurazaka46_RGB.jpg",
-    "_Sakurazaka46_s_RGB.jpg",
-    "_Sakurazaka46_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_s.jpg",
-    "_Sakurazaka46_12th%20Single_AP_S.jpg",
-    "_Sakurazaka46_12th%20Single_AP_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_s.jpg",
-    "_Sakurazaka46_12th%20Single_AP_S.jpg",
-    "_Sakurazaka46_12th%20Single_AP_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_AP_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_s.jpg",
-    "_Sakurazaka46_12th%20Single_S.jpg",
-    "_Sakurazaka46_12th%20Single_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_S_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_s.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_S.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_s.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_S.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_s.jpg",
-    "_Sakurazaka46_Make%20or%20Break_S.jpg",
-    "_Sakurazaka46_Make%20or%20Break_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_s_RGB.jpg",
-    "_Sakurazaka46_Make%20or%20Break_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_AP_S_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_s.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_S.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_s_RGB.jpg",
-    "_Sakurazaka46_12th%20Single_Make%20or%20Break_S_RGB.jpg"
-]
 # https://cdn.hinatazaka46.com/files/14/H46%20Release/14th%20Love%20yourself%21/Hinatazaka46_14thSG%20Love%20yourself%21_AP_RGB.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20NEWS/_%E3%82%A2%E3%83%BC%E5%86%99_1127.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20NEWS/12th_Acmyk_0731.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20NEWS/hnt46_11th_asya_FIX_s.jpg
 # https://cdn.hinatazaka46.com/files/14/_hnt46_AL_asha_main_0920_%E8%BB%BD.jpg
 # https://cdn.hinatazaka46.com/files/14/_h46_10th_asya_0615_FIX_RGB_%E8%BB%BD_2.jpg
-templates_with_date = [
-    "{date_yymmdd}_hnt46_14th_asya_FIX.jpg",
-    "{date_yymmdd}_hnt46_asya_FIX.jpg",
-    "{date_yymmdd}_asya.jpg",
-    "{date_yymmdd}_14th_asya.jpg",
-    "{date_yymmdd}_アー写.jpg",
-    "{date_yymmdd}_14th.jpg",
-    "{date_yymmdd}_FIX.jpg",
-    "{date_yymmdd}_hnt46_FIX.jpg",
-    "asya_FIX_{date}.jpg",
-    "asya_{date}.jpg",
-    "_asya_{date}.jpg",
-    "_asya_FIX_{date}.jpg",
-    "アー写_{date}.jpg",
-    "アー写_FIX_{date}.jpg",
-    "_アー写_{date}.jpg",
-    "_アー写14th_{date}.jpg",
-    "hnt46_asya_{date}.jpg",
-    "hnt46_asya_FIX_{date}.jpg",
-    "hnt46_FIX_{date}.jpg",
-    "_FIX_{date}.jpg",
-    "14th_asya_{date}.jpg",
-    "14th_Asya_FIX_{date}.jpg",
-    "14th_{date}.jpg",
-    "hnt46_14th_main_{date}.jpg",
-    "14th_asya_FIX_s_{date}.jpg",
-    "hnt46_asya_FIX_s_{date}.jpg",
-    "asya_FIX_s_{date}.jpg",
-    "14th_asya_s_{date}.jpg",
-    "hnt46_ア写_{date}.jpg",
-    "hnt46_ア写_FIX_{date}.jpg",
-    "14th_アー写_{date}.jpg",
-    "HNT_14th_{date}.jpg",
-    "hnt46_アー写_14th_{date}.jpg",
-    "hnt46_アー写_FIX_{date}.jpg",
-    "ア写_{date}.jpg",
-]
 
+
+base_url = "https://cdn.hinatazaka46.com/files/14/H46%20Release/15th%20お願いバッハ！/"
+import itertools
+
+def generate_templates(group, nth, title, shortcode):
+    templates = []
+
+    # 基本组合元素
+    group_variants = [
+        group,
+        f"_{group}",
+        group.lower(),  # 小写版
+        f"_{group.lower()}",
+    ]
+
+    nth_variants = [
+        f"{nth} Single",
+        f"{nth}SG",
+        nth,  # 纯数字版
+    ]
+
+    title_variants = [
+        title,  # 原文
+    ]
+
+    # 后缀模式（参考你给的链接）
+    suffixes = [
+        "_AP_s.jpg", "_AP_S.jpg", "_AP_RGB.jpg", "_AP_s_RGB.jpg", "_AP_S_RGB.jpg",
+        "_KV.jpg", "_KV_s.jpg", "_KV_S.jpg", "_KV_new_s.jpg", "_KV_new_S.jpg",
+        "_asya_FIX_s.jpg", "_asya_FIX_RGB.jpg",
+        "_asha_main.jpg",
+        "_asha_main_0920_軽.jpg", "_asha_main_0920_軽_2.jpg",  # 示例
+        "_Acmyk_0731.jpg",  # 示例
+    ]
+
+    # 1. Group + nth + title + suffix
+    for g in group_variants:
+        for n in nth_variants:
+            for t in title_variants:
+                for suf in suffixes:
+                    templates.append(f"{g}_{n}_{t}{suf}")
+                    templates.append(f"{g}_{n}%20{t}{suf}")  # 空格编码
+
+    # 2. Group + title + suffix (无 nth)
+    for g in group_variants:
+        for t in title_variants:
+            for suf in suffixes:
+                templates.append(f"{g}_{t}{suf}")
+                templates.append(f"{g}%20{t}{suf}")
+
+    # 3. Shortcode + nth + asya/asha/acmyk 系列
+    asya_suffixes = ["_asya_FIX_s.jpg", "_asya_FIX_RGB.jpg"]
+    asha_suffixes = ["_asha_main.jpg", "_asha_main_0920_軽.jpg", "_asha_main_0920_軽_2.jpg"]
+    acmyk_suffixes = ["_Acmyk_0731.jpg"]
+
+    for suf in asya_suffixes:
+        templates.append(f"{shortcode}_{nth}_asya{suf}")
+
+    for suf in asha_suffixes:
+        templates.append(f"_{shortcode}_AL_asha{suf}")
+
+    for suf in acmyk_suffixes:
+        templates.append(f"{shortcode}_{nth}_Acmyk_0731.jpg")
+
+    return templates
+
+
+# ==== 使用示例 ====
+group = "Hinatazaka46"
+nth = "15th"
+title = "お願いバッハ！"
+shortcode = "hnt46"  # 缩写
+
+templates_without_date = generate_templates(group, nth, title, shortcode)
+
+print(f"共生成 {len(templates_without_date)} 个模板")
+for t in templates_without_date:
+    print(t)
 
 def check_url(url):
     try:
