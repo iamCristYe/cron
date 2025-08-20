@@ -161,6 +161,6 @@ def get_send(id, start):
             break
 
 
-get_send("0000013", 43)
-get_send("0000045", 34)
-get_send("0000046", 26)
+get_send("0000013", 43) #Hinata
+get_send("0000045", 35) #Sakura
+get_send("0000046", 26) #Nogi
