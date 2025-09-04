@@ -75,7 +75,10 @@ while True:
         else:
             print("No images found starting with 'https://weather-pctr.c.yimg.jp'.")
 
-        time.sleep(50)
+        time.sleep(60)
+    else:
+        time.sleep(40)
+
 
     if count >= 4:
 
