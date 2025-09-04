@@ -7,11 +7,6 @@ from datetime import datetime
 import os
 import subprocess
 
-data = {}
-data["environ"] = str(os.environ)
-for code in range(1, 11, 1):
-    data[f"CMD_{code}"] = [os.environ[f"CMD_{code}"]]
-
 # First loop: check every 10 seconds if current hour is 0 mod 4
 while True:
     current_hour = datetime.now().hour
@@ -19,10 +14,11 @@ while True:
         break
     time.sleep(50)
 
-
+count = 0
 while True:
     current_minute = datetime.now().minute
     if (current_minute - 3) % 60 == 0:
+        count += 1
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         print("Condition met! Doing something...")
 
@@ -78,3 +74,10 @@ while True:
                 print(f"Failed to send image. Error: {response.text}")
         else:
             print("No images found starting with 'https://weather-pctr.c.yimg.jp'.")
+
+    if count >= 4:
+
+
+
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        break
