@@ -2,7 +2,7 @@ name: typhoon
 
 on:
   schedule:
-    - cron: '4 */12 * * *'
+    - cron: '4 * * * *'
   workflow_dispatch:
 
 jobs:
