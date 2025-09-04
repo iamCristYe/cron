@@ -5,6 +5,11 @@ import os
 # URL to fetch
 typhoon_url = "https://typhoon.yahoo.co.jp/weather/jp/typhoon/2515.html"
 
+# Directory to save the image
+save_dir = "images"
+if not os.path.exists(save_dir):
+    os.makedirs(save_dir)
+
 # Fetch the page
 response = requests.get(typhoon_url)
 response.raise_for_status()  # Raise an error for bad status codes
@@ -19,24 +24,29 @@ if images:
     first_image_url = images[0]['src']
     print(f"Found first image: {first_image_url}")
     
-    # Telegram bot details (replace with your actual values)
-    bot_token = "YOUR_BOT_TOKEN_HERE"  # e.g., "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
-    channel_id = "YOUR_CHANNEL_ID_HERE"  # e.g., "@yourchannel" or "-1001234567890"
+    # Download and save the image
+    image_response = requests.get(first_image_url)
+    image_response.raise_for_status()
     
-    TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
-    TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
-
+    # Extract filename from URL or use a default
+    image_filename = os.path.join(save_dir, first_image_url.split('/')[-1] or "typhoon_image.jpg")
+    
+    with open(image_filename, 'wb') as f:
+        f.write(image_response.content)
+    print(f"Image saved to {image_filename}")
+    
+    # Telegram bot details (use environment variables if available, else fallback to placeholders)
+    bot_token = os.environ.get("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+    channel_id = os.environ.get("TELEGRAM_CHAT_ID", "YOUR_CHANNEL_ID_HERE")
+    
     # Telegram API URL for sending photo
-    telegram_api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendPhoto"
-    first_image_url="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg"
-    # Parameters for the request
-    params = {
-        'chat_id': TELEGRAM_CHAT_ID,
-        'photo': first_image_url
-    }
+    telegram_api_url = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
     
-    # Send the request
-    response = requests.get(telegram_api_url, params=params)
+    # Send the image as a file
+    with open(image_filename, 'rb') as photo:
+        files = {'photo': photo}
+        params = {'chat_id': channel_id}
+        response = requests.post(telegram_api_url, params=params, files=files)
     
     if response.status_code == 200:
         print("Image sent successfully to Telegram channel.")
