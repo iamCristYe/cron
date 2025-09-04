@@ -2,7 +2,7 @@ name: typhoon
 
 on:
   schedule:
-    - cron: '4 * * * *'
+    - cron: '30 2-22/4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -29,5 +29,5 @@ jobs:
         run: |
           python typhoon.py
         env:
-          TELEGRAM_CHAT_ID: ${{ secrets.CHAT_ID_BOT_CHANNEL }}
+          TELEGRAM_CHAT_ID: ${{ secrets.CHAT_ID_IMAGES }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
