@@ -24,6 +24,7 @@ dates.append(release_date)  # 添加发售日
 # sakurazaka46.com/files/14/sakurazaka46_BAN_KV.jpg
 # sakurazaka46.com/files/14/sakurazaka_Nobody%27s%20fault_KV_s.jpg
 
+# https://cdn.hinatazaka46.com/files/14/H46%20Release/15th%20お願いバッハ！/Hinatazaka46_15thSG_AP_RGB_JPG_s.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20Release/14th%20Love%20yourself%21/Hinatazaka46_14thSG%20Love%20yourself%21_AP_RGB.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20NEWS/_%E3%82%A2%E3%83%BC%E5%86%99_1127.jpg
 # https://cdn.hinatazaka46.com/files/14/H46%20NEWS/12th_Acmyk_0731.jpg
@@ -32,8 +33,17 @@ dates.append(release_date)  # 添加发售日
 # https://cdn.hinatazaka46.com/files/14/_h46_10th_asya_0615_FIX_RGB_%E8%BB%BD_2.jpg
 
 
-base_url = "https://cdn.hinatazaka46.com/files/14/H46%20Release/15th%20お願いバッハ！/"
+base_url = "https://sakurazaka46.com/files/14/S46%20Release/13th%20Unhappy%20birthday構文/"
 import itertools
+# 后缀列表
+suffixes = [
+    "_AP_s.jpg", "_AP_S.jpg", "_AP_RGB.jpg", "_AP_s_RGB.jpg", "_AP_S_RGB.jpg",
+    "_KV.jpg", "_KV_s.jpg", "_KV_S.jpg", "_KV_new_s.jpg", "_KV_new_S.jpg",
+    "_asya_FIX_s.jpg", "_asya_FIX_RGB.jpg",
+    "_asha_main.jpg",
+    "_asha_main_0920_軽.jpg", "_asha_main_0920_軽_2.jpg",
+    "_Acmyk_0731.jpg",
+]
 
 def generate_templates(group, nth, title, shortcode):
     templates = []
@@ -54,16 +64,6 @@ def generate_templates(group, nth, title, shortcode):
 
     title_variants = [
         title,  # 原文
-    ]
-
-    # 后缀模式（参考你给的链接）
-    suffixes = [
-        "_AP_s.jpg", "_AP_S.jpg", "_AP_RGB.jpg", "_AP_s_RGB.jpg", "_AP_S_RGB.jpg",
-        "_KV.jpg", "_KV_s.jpg", "_KV_S.jpg", "_KV_new_s.jpg", "_KV_new_S.jpg",
-        "_asya_FIX_s.jpg", "_asya_FIX_RGB.jpg",
-        "_asha_main.jpg",
-        "_asha_main_0920_軽.jpg", "_asha_main_0920_軽_2.jpg",  # 示例
-        "_Acmyk_0731.jpg",  # 示例
     ]
 
     # 1. Group + nth + title + suffix
@@ -97,18 +97,17 @@ def generate_templates(group, nth, title, shortcode):
 
     return templates
 
+# 使用示例
+group = "Sakurazaka46"
+nth = "13th"
+title = "Unhappy birthday構文"
+shortcode = "S46"
 
-# ==== 使用示例 ====
-group = ""#"Hinatazaka46"
-nth = "15th"
-title = "お願いバッハ！"
-shortcode = "hnt46"  # 缩写
+templates = generate_templates(group, nth, title, shortcode)
 
-templates_without_date = generate_templates(group, nth, title, shortcode)
-
-print(f"共生成 {len(templates_without_date)} 个模板")
-for t in templates_without_date:
-    print(t)
+print(f"共生成 {len(templates)} 个模板")
+# for t in templates:
+#     print(t)
 
 def check_url(url):
     try:
@@ -118,27 +117,13 @@ def check_url(url):
         print(f"⚠️ 请求失败: {url} -> {e}")
         return False
 
-
-# Step 1: 不含日期
-print("🔍 [Step 1] 尝试不含日期的文件名...")
-for filename in templates_without_date:
+# 检查 URL
+print("🔍 尝试文件名...")
+for filename in templates:
     full_url = base_url + filename
     print(f"尝试中: {full_url}")
     if check_url(full_url):
         print(f"\n✅ 找到有效链接: {full_url}")
         exit(0)
-
-# Step 2: 含日期
-# print("🔍 [Step 2] 尝试含日期的文件名（任意位置）...")
-# for date_obj in dates:
-#     date = date_obj.strftime("%m%d")
-#     date_yymmdd = date_obj.strftime("%y%m%d")
-#     for tpl in templates_with_date:
-#         filename = tpl.format(date=date, date_yymmdd=date_yymmdd)
-#         full_url = base_url + filename
-#         print(f"尝试中: {full_url}")
-#         if check_url(full_url):
-#             print(f"\n✅ 找到有效链接: {full_url}")
-#             exit(0)
 
 print("\n🛑 全部尝试完毕，未找到有效链接。")
