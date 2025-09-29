@@ -163,4 +163,4 @@ def get_send(id, start):
 
 get_send("0000013", 43) #Hinata
 get_send("0000045", 35) #Sakura
-get_send("0000046", 27) #Nogi
+get_send("0000046", 29) #Nogi
